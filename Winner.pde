@@ -9,8 +9,7 @@ class Winner {
   void win() {
     //Sets run to false to stop game.
     run2= false;
-    //Clears all raindrops in array list.
-    drops.clear();
+
     //Sets certain background.
     background(125, 200, 255);
     //If the 'r' key is pressed this will run as true.

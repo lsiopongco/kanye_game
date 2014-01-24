@@ -5,7 +5,7 @@ class Kanye {
   int moveSpeed; 
 
   Kanye() {
-    loc = new PVector(width/2, height/2);
+    loc = new PVector(500, 450);
     d = 33;
     moveSpeed = 5;
     move = new PVector();
@@ -14,7 +14,7 @@ class Kanye {
   void display() {
     fill(0);
     stroke(0, 0, 100);
-    image(kanye, loc.x, loc.y, d, d);
+    image(Kanye, loc.x, loc.y, d, d);
   }
 
   void move() {

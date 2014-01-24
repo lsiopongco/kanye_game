@@ -18,8 +18,12 @@ class GameOver {
       run=true;
       score=0;
       Life=3;
-    }
-    //Aligns text to center.
+      savedTime=millis();
+      K.d=33;
+      K.loc.x= 500;
+   
+      K.loc.y=450;
+     //text to center.
     textAlign(CENTER);
     //Sets text size to 50.
     textSize(50);
@@ -30,4 +34,4 @@ class GameOver {
     text("'R' TO RESTART", 250, 250);
   }
 }
-
+}
