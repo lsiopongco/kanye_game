@@ -1,3 +1,5 @@
+ArrayList<Arrows> arrow = new ArrayList<Arrows>();
+
 int Startscreen=0;
 int oldTime = 0;
 int currentTime = 0;
@@ -5,6 +7,7 @@ int timeChange = 0;
 PImage Kanye;
 PImage background;
 PImage background1; 
+PImage ddr;
 int score=0;
 int Life=3; 
 boolean run = true; 
@@ -12,9 +15,11 @@ boolean restart=true;
 GameOver G;
 Winner W;
 Kanye K; 
+Keypad P;
+Arrows A;
 
 int savedTime;
-int totalTime=15000;
+int totalTime=100000;
 
 void setup(){
   if(Startscreen>0){
@@ -22,6 +27,9 @@ void setup(){
   }
 G = new GameOver();
 W=new Winner();
+P = new Keypad();
+ddr = loadImage ("ddr.png");
+
 
 
   strokeWeight(3);
@@ -32,6 +40,10 @@ W=new Winner();
   Kanye = loadImage("kanye.png");
   background = loadImage("background.jpg");
   size(background.width, background.height);
+  
+  for(int i = 0; i<1;i++){
+    arrow.add(new Arrows());
+}
 }
   
   void draw() {
@@ -54,6 +66,19 @@ if(Startscreen>0){
     background(background);
     K.display();
     K.move();
+    P.display();
+    
+    if (frameCount%100 == 0){
+      arrow.add(new Arrows());
+    }
+    
+    for (int i = arrow.size()-1; i >=0; i--){
+      Arrows b = arrow.get(i);
+      b.move();
+      b.display();
+    }
+    
+    
   
     int passedTime =millis() - savedTime; 
     if (passedTime > totalTime){
